@@ -2,7 +2,7 @@
 
 def main():
   inputList = []
-  x, y = 0, 0
+  pos = [0,0]
 
   with open("./Day2/Part1/input.txt", 'r') as f:
     inputList = f.read().splitlines()
@@ -11,15 +11,15 @@ def main():
     dir, num = x.split()
 
     if (dir == "forward"):
-      x += num
+      pos[0] += int(num)
     elif (dir == "up"):
-      y += num
+      pos[1] -= int(num)
     elif (dir == "down"):
-      y -= num
+      pos[1] += int(num)
 
-  print(x * y)
+  answer = pos[0] * pos[1]
 
-
+  print("The answer to Day 2 Part 1 is \033[32;1m{}\033[0m".format(answer))
 
 if __name__ == "__main__":
   main()
