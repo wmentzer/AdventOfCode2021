@@ -5,7 +5,7 @@ Submissions to Advent of Code 2021 using Python
 
 Clone repository:
 ```
-git clone https://github.com/wmentzer/AdventOfCode2021.git"</li>
+git clone https://github.com/wmentzer/AdventOfCode2021.git"
 ```
 Navigate to the working directory:
 ```
