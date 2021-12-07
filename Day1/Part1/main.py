@@ -19,7 +19,7 @@ def main():
     else:
       prev = x
 
-  print("The distance increased a total of {} times".format(count))
+  print("The distance increased a total of \033[32;1m{}\033[0m times".format(count))
 
   print("\n**********    FINISHED    **********")
 
