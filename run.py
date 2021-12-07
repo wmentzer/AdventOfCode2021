@@ -16,7 +16,7 @@ if os.path.exists(filepath1):
   os.chmod(filepath1, st.st_mode | 0o0111)
   subprocess.call(filepath1, shell=True)
 else:
-  print("\n\033[34;1m[+]\033[0m Could not start Day {} subprocess... \033[31;1mFile doesn't exist!\033[0m".format(daySelector))
+  print("\n\033[34;1m[+]\033[0m Could not start Day {} Part 1 subprocess... \033[31;1mFile doesn't exist!\033[0m".format(daySelector))
   print("\033[34;1m[+]\033[0m Exiting...")
 
 if os.path.exists(filepath2):
@@ -27,3 +27,6 @@ if os.path.exists(filepath2):
   subprocess.call(filepath2, shell=True)
 
   print("\n\033[34;1m[+]\033[0m Day {} subprocess complete...\n\033[34;1m[+]\033[0m Exiting...".format(daySelector))
+else:
+  print("\n\033[34;1m[+]\033[0m Could not start Day {} Part 2 subprocess... \033[31;1mFile doesn't exist!\033[0m".format(daySelector))
+  print("\033[34;1m[+]\033[0m Exiting...")
