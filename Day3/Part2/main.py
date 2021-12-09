@@ -1,51 +1,75 @@
 #!/usr/bin/env python3
 
+def getO2Rating(arr = []):
+  col, one, zero = 0, 0, 0
+
+  while len(arr) > 1 and col < 12:
+    for x in arr:
+      if(x[col] == '1'):
+        one += 1
+      else:
+        zero += 1
+
+    if(one > zero):
+      for x in list(arr):
+        if x[col] == '0':
+          arr.remove(x)
+    elif(one < zero):
+      for x in list(arr):
+        if x[col] == '1':
+          arr.remove(x)
+    else:
+      for x in list(arr):
+        if x[col] == '0':
+          arr.remove(x)
+    col += 1
+    one, zero = 0, 0
+
+  return arr[0]
+
+def getCO2Rating(arr = []):
+  col, one, zero = 0, 0, 0
+
+  while len(arr) > 1 and col < 12:
+    for x in arr:
+      if(x[col] == '1'):
+        one += 1
+      else:
+        zero += 1
+
+    if(one > zero):
+      for x in list(arr):
+        if x[col] == '1':
+          arr.remove(x)
+    elif(one < zero):
+      for x in list(arr):
+        if x[col] == '0':
+          arr.remove(x)
+    else:
+      for x in list(arr):
+        if x[col] == '1':
+          arr.remove(x)
+    col += 1
+    one, zero = 0, 0
+
+  return arr[0]
+
 def main():
   o2 = []
-  co2 = o2
-  col, one, zero = 0, 0, 0
+  co2 = []
 
   with open("./Day3/Part2/input.txt", 'r') as f:
     o2 = f.read().split()
 
-  while len(o2) > 1:
-    print(col, o2)
-    for x in o2:
-      if(o2[col] == '1'):
-        one += 1
-      else:
-        zero += 1
-    
-    if(one > zero):
-      for x in o2:
-        if x[col] == '0':
-          o2.remove(x)
-    else:
-      for x in o2:
-        if x[col] == '1':
-          o2.remove(x)
-    col += 1
-    one, zero = 0, 0
+  for x in o2:
+    co2.append(x)
 
-  while len(co2) > 1:
-    for x in co2:
-      if(co2[col] == '1'):
-        one += 1
-      else:
-        zero += 1
-    
-    if(one > zero):
-      for x in co2:
-        if x[col] == '0':
-          co2.remove(x)
-    else:
-      for x in o2:
-        if x[col] == '1':
-          co2.remove(x)
-    col += 1
-    one, zero = 0, 0
+  o2Rating = getO2Rating(o2)
+  co2Rating = getCO2Rating(co2)
 
-  print(co2, o2)
+  answer = (int(o2Rating,2) * int(co2Rating,2))
+
+  print("The answer to Day 3 Part 2 is \033[32;1m{}\033[0m".format(answer))
 
 if __name__ == "__main__":
   main()
